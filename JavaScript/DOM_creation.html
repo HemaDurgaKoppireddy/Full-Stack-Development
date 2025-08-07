@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <style>
+        body {
+            /* background-color: rgb(172, 199, 172); */
+            font-family: Arial, sans-serif;
+        }
+
+        input {
+            font-size: 20px;
+            /* background-color: rgb(212, 223, 212); */
+            margin: 5px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 5px 15px;
+        }
+
+        #gridContainer {
+            display: grid;
+            margin-top: 20px;
+            /* gap: 10px; */
+            /* width: 600px; */
+        }
+
+        .grid-item {
+            background-color: white;
+            border: 1px solid black;
+            height: 200px;
+            /* width: 50px; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .grid-item-even {
+            background-color: rgb(0, 0, 0);
+            border: 1px solid black;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>rows: <input type="text" id="rows" required /></h3>
+    <h3>columns: <input type="text" id="cols" required /></h3>
+    <button onclick="Grids()">Generate Grid</button>
+
+    <div id="gridContainer"></div>
+
+    <script>
+        function Grids() {
+            let rows = parseInt(document.getElementById("rows").value);
+            let cols = parseInt(document.getElementById("cols").value);
+
+            let gridContainer = document.getElementById("gridContainer");
+
+            gridContainer.innerHTML = "";
+
+            gridContainer.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+            let r = rows;
+            let c = cols;
+            for (let i = 1; i <= rows * cols; i++) {
+                let box = document.createElement("div");
+                box.className = "grid-item";
+                box.innerText = i;
+                if(i%2==0){
+                    if(box.innerText%2==0) {
+                        box.className = 'grid-item-even'
+                    }
+                }
+                
+                gridContainer.appendChild(box);
+            }
+
+            
+        }
+    </script>
+</body>
+
+</html>

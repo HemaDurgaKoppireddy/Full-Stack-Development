@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Positions
+        </title>
+        <style>
+            .parent{
+                width:1500px;
+                height:1500px;
+                border:2px solid;
+                position:relative;
+                left:20px;
+            }
+            .child{
+                width:100px;
+                height:100px;
+                position:sticky;
+                top:30px;
+                background-color: green;
+            }
+            .child2{
+                width:200px;
+                height:200px;
+                background-color:red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="parent">
+            <div class="child"></div>
+            <div class="child2"></div>
+            <div class="child"></div>
+        </div>
+    </body>
+</html>

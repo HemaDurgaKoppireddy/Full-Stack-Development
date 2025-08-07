@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Queue Status</title>
+  <link rel="stylesheet" href="time_estimation.css">
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <div class="wait-box">
+        <p class="label">Estimated Wait Time:</p>
+        <h1>18 minutes</h1>
+        <p>Your turn at:</p>
+        <h2>11:45 AM</h2>
+      </div>
+      <div class="progress">
+        <div class="bars">
+          <div class="bar filled"></div><div class="bar filled"></div><div class="bar filled"></div><div class="bar filled"></div>
+          <div class="bar filled"></div><div class="bar filled"></div><div class="bar filled"></div><div class="bar filled"></div>
+          <div class="bar filled"></div><div class="bar filled"></div><div class="bar filled"></div><div class="bar filled"></div>
+          <div class="bar empty"></div><div class="bar empty"></div><div class="bar empty"></div><div class="bar empty"></div>
+          <div class="bar empty"></div><div class="bar empty"></div><div class="bar empty"></div><div class="bar empty"></div>
+        </div>
+        <p>12 of 20 served</p><br/>
+      </div>
+      <div class="expected">
+        <p>Your Expected Time:</p>
+        <h2>11:45 AM</h2>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="time-box">
+        <p>Current Time:</p>
+        <h2>11:20 AM</h2>
+        <div class="clock-icon">🕑</div>
+      </div>
+      <div class="status-list">
+        <div class="status completed"><span></span>11:00 AM — 11:15 AM <strong>Completed</strong></div>
+        <div class="status ongoing"><span></span>11:15 AM — 11:30 AM <strong>Ongoing</strong></div>
+        <div class="status here"><span></span>11:30 AM — 11:45 AM <strong>You are here</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="snack-info">
+    <span class="emoji">😊</span> Queue’s light — grab a snack first!
+  </div>
+  <footer class="footer">
+    <p>&copy; 2025 Queue Management System. All rights reserved.</p>
+  </footer>
+</body>
+</html>

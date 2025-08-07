@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Java Script</title>
+        <script>
+            console.log("Hello")
+            var s = "hema";
+            console.log(s)
+            console.log(s.length)
+            console.log(s.toUpperCase())
+            console.log(s.replace('h', 'a'))
+            console.log(s.split(""))
+
+            var d = new Date();
+            console.log(d)
+            console.log(d.getDate())
+            console.log(d.getDay())
+            console.log(d.getFullYear())
+            console.log(d.getMonth())
+            console.log(d.getHours())
+            console.log(d.getMinutes())
+            console.log(d.getSeconds())
+
+            var m = {
+                100 : 1,
+                200 : 2,
+                "hema" : 10,
+                fun : function () {
+                    console.log("Hi Good Morning")
+                }
+            }
+            console.log(m)
+            console.log(Object.keys(m))
+            console.log(Object.values(m))
+            console.log(Object.entries(m))
+
+            m.map(ind => {
+                console.log(ind[0])
+            })
+        </script>
+    </head>
+    <body></body>
+</html>

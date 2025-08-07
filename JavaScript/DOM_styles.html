@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM Styles</title>
+        <!-- <link rel="stylesheet" href="./DOM_styles.css" /> -->
+        <style>
+            body {
+                /* flex-direction: column; */
+                height: 100svh;
+                gap: 20px;
+            }
+            .parent {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 500px;
+                height: 500px;
+                border: 1px solid;
+            }
+            .box {
+                width: 200px;
+                height: 200px;
+                background-color: gray;
+            }
+            .btn {
+                background-color: black;
+                color: white;
+                font-size: 25px;
+                padding: 10px 20px;
+                border-radius: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="parent">
+            <div class="box"></div>
+        </div>
+        <button onclick="right()" class="btn">Right</button>
+        <button onclick="left()" class="btn">Left</button>
+        <button onclick="top()" class="btn">Top</button>
+        <button onclick="bottom()" class="btn">Bottom</button>
+        <script>
+            // document.getElementsByClassName("box")[0].style = "background-color: red"
+            function right() {
+                document.getElementsByClassName("box")[0].style = "position: relative; left: 100px"
+            }
+            function left() {
+                document.getElementsByClassName("box")[0].style = "position: relative; right: 100px"
+            }
+            function top() {
+                document.getElementsByClassName("box")[0].style = "position: relative; bottom: 100px"
+            }
+            function bottom() {
+                document.getElementsByClassName("box")[0].style = "position: relative; top: 100px"
+            }
+        </script>
+    </body>
+</html>

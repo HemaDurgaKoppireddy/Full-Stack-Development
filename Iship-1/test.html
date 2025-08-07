@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>General Programming Compiler</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Light Theme Defaults (Direct Colors) */
+        body {
+            background-color: #f0f2f5;
+            /* Light background */
+            color: #333;
+            /* Default text color */
+        }
+
+        #topbar {
+            background: #2c3e50;
+            /* Dark blue top bar */
+            color: white;
+        }
+
+        #topbar select {
+            background-color: #4a6c8e;
+            /* Slightly lighter blue for select */
+            color: white;
+            border: 1px solid #5a7d9e;
+        }
+
+        #topbar button {
+            background-color: #3498db;
+            /* Blue button */
+            color: white;
+        }
+
+        #topbar button:hover {
+            background-color: #2980b9;
+            /* Darker blue on hover */
+        }
+
+        #editor,
+        #editor1,
+        #editor2,
+        #right-pane {
+            border-color: #ddd;
+            /* Light grey border */
+        }
+
+        #input-area {
+            background: #f9f9f9;
+            /* Light grey for input area */
+            color: #333;
+        }
+
+        #input-area label {
+            color: #333;
+            /* Dark text for label */
+        }
+
+        #input-textarea {
+            background-color: #f9f9f9;
+            /* Light grey for textarea */
+            color: #333;
+            border-color: #ccc;
+        }
+
+        #input-textarea:focus {
+            border-color: #3498db;
+            /* Blue border on focus */
+        }
+
+        #output {
+            background: #f9f9f9;
+            /* Light grey for output area */
+            color: #333;
+        }
+
+        .output-line-number {
+            color: #777;
+            /* Grey for line numbers */
+        }
+
+        /* Dark Theme Overrides (Direct Colors) */
+        body.dark-theme {
+            background-color: #1a1a1a;
+            /* Dark background */
+            color: #f0f0f0;
+            /* Light text */
+        }
+
+        body.dark-theme #topbar {
+            background: #2d2d2d;
+            /* Dark grey top bar */
+            color: #f0f0f0;
+        }
+
+        body.dark-theme #topbar select {
+            background-color: #3a3a3a;
+            /* Slightly lighter dark grey for select */
+            color: #f0f0f0;
+            border: 1px solid #4a4a4a;
+        }
+
+        body.dark-theme #topbar button {
+            /* background-color: #61afef; Softer blue for dark theme */
+            background-image: linear-gradient(to right, #05ced8, #43a3f6);
+            color: #2d2d2d;
+        }
+
+        body.dark-theme #topbar button:hover {
+            /* background-color: #529ecc; Darker soft blue on hover */
+            background: #2da6ac;
+        }
+
+        body.dark-theme #editor,
+        body.dark-theme #right-pane {
+            border-color: #444;
+            /* Darker grey border */
+        }
+
+        body.dark-theme #input-area {
+            background: #222;
+            /* Darker grey for input area */
+            color: #eee;
+        }
+
+        body.dark-theme #input-area label {
+            color: #bbb;
+            /* Lighter text for label */
+        }
+
+        body.dark-theme #input-textarea {
+            background-color: #222;
+            color: #eee;
+            border-color: #555;
+        }
+
+        body.dark-theme #input-textarea:focus {
+            border-color: #61afef;
+        }
+
+        body.dark-theme #output {
+            background: #0d1117;
+            /* Very dark blue for output area */
+            color: #c9d1d9;
+        }
+
+        body.dark-theme .output-line-number {
+            color: #555;
+        }
+
+        /* General Layout (using percentages and flex for distribution) */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            /* Makes direct children stack vertically */
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            /* Prevent body scroll */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            /* Smooth theme transition */
+        }
+
+        #topbar {
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            flex-wrap: wrap;
+            /* Allow buttons/select to wrap if screen is too narrow */
+            flex-shrink: 0;
+            /* Prevents topbar from shrinking */
+        }
+
+        #topbar label {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        #topbar select {
+            font-size: 15px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            appearance: none;
+            /* Remove default arrow */
+            padding-right: 30px;
+            /* Space for custom arrow */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            background-size: 16px;
+        }
+
+        body.dark-theme #topbar select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f0f0f0'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+        }
+
+
+        #topbar button {
+            font-size: 15px;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        #main-container {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* Makes editor-pane and right-pane stack horizontally */
+            /* Allows it to take all available vertical space below topbar */
+            overflow: hidden;
+        }
+
+        #editor-pane {
+            width: 100%;
+            /* Editor takes 65% of main container's width */
+            display: flex;
+            /* Makes Monaco editor fill its space */
+        }
+
+        #editor,
+        #editor1,
+        #editor2 {
+            width: 100%;
+            /* Monaco editor takes 100% of its parent's width */
+            height: 50svh;
+            /* Monaco editor takes 100% of its parent's height */
+            border: 1px solid;
+            /* Border from theme */
+            box-sizing: border-box;
+            /* Include padding and border in element's total width and height */
+            transition: border-color 0.3s ease;
+        }
+
+        #right-pane {
+            width: 100%;
+            /* Right pane takes 35% of main container's width */
+            display: flex;
+            /* Makes input-area and output stack vertically */
+            flex-direction: column;
+            border-left: 1px solid;
+            /* Border from theme for separation from editor */
+            box-sizing: border-box;
+        }
+
+        #input-area {
+            height: 50%;
+            /* Input takes 50% of right pane's height */
+            padding: 10px;
+            font-family: monospace;
+            border: 1px solid;
+            /* Border from theme */
+            border-left: none;
+            /* No border here, as right-pane has it */
+            border-right: none;
+            border-top: none;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        #input-area label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        #input-textarea {
+            width: 100%;
+            flex-grow: 1;
+            /* Makes textarea fill available space */
+            resize: none;
+            /* Disable manual resize */
+            padding: 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 14px;
+            outline: none;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        #output {
+            height: 50svh;
+            /* Output takes 50% of right pane's height */
+            padding: 10px;
+            font-family: monospace;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            /* Preserve whitespace and wrap text */
+            display: flex;
+            flex-direction: column;
+            font-size: 14px;
+            border: 1px solid;
+            /* Border from theme */
+            border-left: none;
+            /* No border here, as right-pane has it */
+            border-right: none;
+            border-bottom: none;
+            /* No bottom border */
+            border-top: none;
+            /* No top border, input is directly above it */
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        #output-content {
+            flex-grow: 1;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            /* For line numbers and content */
+            gap: 5px;
+        }
+
+        .output-line-number {
+            text-align: right;
+            user-select: none;
+            /* Prevent selection */
+            padding-right: 5px;
+        }
+
+
+        .dark-mode-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* padding: 8px; */
+        }
+
+        /* Hide checkbox */
+        .dark-mode-toggle input {
+            display: none;
+        }
+
+        /* Label acts as the switch track */
+        .switch {
+            width: 50px;
+            height: 10px;
+            background: #e4e4e4;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        /* Sliding toggle (thumb) */
+        .slider {
+            background: orange;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            transition: left 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        /* Icons */
+        .icon {
+
+            font-size: 14px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Initially show sun, hide moon */
+        .sun {
+            opacity: 1;
+        }
+
+        .moon {
+            opacity: 0;
+        }
+
+        /* When toggled ON (checked) */
+        .dark-mode-toggle input:checked+.switch .slider {
+            left: 45px;
+            background: #1f1f1f;
+        }
+
+        /* Switch icons */
+        .dark-mode-toggle input:checked+.switch .slider .sun {
+            opacity: 0;
+        }
+
+        .dark-mode-toggle input:checked+.switch .slider .moon {
+            opacity: 1;
+        }
+
+        /* Mobile responsiveness: stack vertically */
+        @media (max-width: 768px) {
+            #topbar {
+                /* flex-direction: column; */
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            #topbar select,
+            #topbar button {
+                width: 100px;
+                box-sizing: border-box;
+            }
+
+            #topbar label {
+                margin-bottom: -5px;
+            }
+
+            #main-container {
+                flex-direction: column;
+                /* Stack editor and I/O vertically on small screens */
+            }
+
+            #editor-pane {
+                width: 100%;
+                /* Full width */
+                height: 100%;
+                /* Editor takes half of the screen height */
+            }
+
+            #right-pane {
+                width: 100%;
+                /* Full width */
+                height: 100%;
+                /* Right pane takes other half of screen height */
+                border-left: none;
+                /* Remove left border */
+                border-top: 1px solid;
+                /* Add top border to separate from editor */
+            }
+
+            /* Input/Output inside right-pane still split 50/50 vertically */
+            #input-area {
+                border-top: none;
+                /* No top border, as right-pane handles it */
+                border-bottom: none;
+                /* No bottom border as output is adjacent */
+            }
+
+            #output {
+                border-top: none;
+                /* No top border, input is adjacent */
+                border-bottom: 1px solid;
+                /* Add bottom border to define end of output */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="topbar">
+        <button id="runBtn">Run</button>
+        <button id="clearBtn">Clear</button>
+        <!-- <button id="themeToggle">Toggle Theme</button> -->
+        <!-- <div class="dark-mode-toggle">
+            <input type="checkbox" id="toggle" />
+            <label for="toggle" class="switch">
+                <div class="slider">
+                    <i class="fas fa-sun icon sun"></i>
+                    <i class="fas fa-moon icon moon"></i>
+                </div>
+            </label>
+        </div> -->
+    </div>
+
+    <div id="main-container">
+        <div id="editor-pane">
+            <div id="editor"></div>
+            <div id="editor1"></div>
+            <div id="editor2"></div>
+        </div>
+
+        <div id="right-pane">
+            <div id="output">Output will appear here...</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.40.0/min/vs/loader.js"></script>
+    <script>
+        require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.40.0/min/vs' } });
+
+        let editor;
+        const defaultCodeSnippets = {
+            'c': `#include <stdio.h>\n\nint main() {\n    printf("Hello, World!\\n");\n    // Example input usage (uncomment to use):\n    // int num;\n    // printf("Enter an integer: ");\n    // scanf("%d", &num);\n    // printf("You entered: %d\\n", num);\n    return 0;\n}`,
+            'cpp': `#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Hello, World!" << endl;\n    // Example input usage (uncomment to use):\n    // int num;\n    // cout << "Enter an integer: ";\n    // cin >> num;\n    // cout << "You entered: " << num << endl;\n    return 0;\n}`,
+            'java': `public class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello, World!");\n        // Example input usage (uncomment to use):\n        // java.util.Scanner scanner = new java.util.Scanner(System.in);\n        // System.out.print("Enter an integer: ");\n        // int num = scanner.nextInt();\n        // System.out.println("You entered: " + num);\n        // scanner.close();\n    }\n}`,
+            'python': `print("Hello, World!")\n# Example input usage (uncomment to use):\n# name = input("Enter your name: ")\n# print(f"Hello, {name}!")`,
+            'html': `<div>\n<!-- write your html code here !-->\n\n</div>`,
+            'css':`/* write your css here */`,
+            'js':`//write your js`
+        };
+
+        function updateOutput(text) {
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = '';
+
+            if (!text || text.trim() === '') {
+                outputDiv.textContent = 'Output will appear here...';
+                return;
+            }
+
+            const lines = text.split('\n');
+            const outputContentDiv = document.createElement('div');
+            outputContentDiv.id = 'output-content';
+            outputDiv.appendChild(outputContentDiv);
+
+            lines.forEach((line, index) => {
+                const lineNumberSpan = document.createElement('span');
+                lineNumberSpan.classList.add('output-line-number');
+                lineNumberSpan.textContent = (index + 1) + '.';
+
+                const lineTextSpan = document.createElement('span');
+                lineTextSpan.textContent = line;
+
+                outputContentDiv.appendChild(lineNumberSpan);
+                outputContentDiv.appendChild(lineTextSpan);
+            });
+            outputDiv.scrollTop = outputDiv.scrollHeight;
+        }
+
+        require(['vs/editor/editor.main'], function () {
+            editor = monaco.editor.create(document.getElementById('editor'), {
+                value: defaultCodeSnippets['html'],
+                language: 'html',
+                theme: 'vs-dark',
+                automaticLayout: true,
+                minimap: { enabled: false }
+            });
+
+            editor = monaco.editor.create(document.getElementById('editor1'), {
+                value: defaultCodeSnippets['css'],
+                language: 'css',
+                theme: 'vs-dark',
+                automaticLayout: true,
+                minimap: { enabled: false }
+            });
+
+            editor = monaco.editor.create(document.getElementById('editor2'), {
+                value: defaultCodeSnippets['js'],
+                language: 'javascript',
+                theme: 'vs-dark',
+                automaticLayout: true,
+                minimap: { enabled: false }
+            });
+
+            const languageSelector = document.getElementById('language');
+            const runBtn = document.getElementById('runBtn');
+            const clearBtn = document.getElementById('clearBtn');
+            const themeToggle = document.getElementById('themeToggle');
+            const inputTextArea = document.getElementById('input-textarea');
+            const outputDiv = document.getElementById('output');
+
+            updateOutput('');
+
+            languageSelector.addEventListener('change', () => {
+                const lang = languageSelector.value;
+                let monacoLang = 'c';
+                if (lang === 'cpp') monacoLang = 'cpp';
+                else if (lang === 'java') monacoLang = 'java';
+                else if (lang === 'python') monacoLang = 'python';
+
+                monaco.editor.setModelLanguage(editor.getModel(), monacoLang);
+                editor.setValue(defaultCodeSnippets[lang]);
+                updateOutput('');
+                inputTextArea.value = '';
+            });
+
+            runBtn.addEventListener('click', () => {
+                const code = editor.getValue();
+                const lang = languageSelector.value;
+                const input = inputTextArea.value;
+
+                updateOutput('Running...');
+
+                fetch(`https://compilerapi.jami.ltd/${lang}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code, input })
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.output) {
+                            updateOutput(data.output);
+                        } else if (data.error) {
+                            updateOutput(`Error:\n${data.error}`);
+                        } else {
+                            updateOutput('No output returned.');
+                        }
+                    })
+                    .catch(err => {
+                        updateOutput(`Fetch error:\n${err}`);
+                    });
+            });
+
+            clearBtn.addEventListener('click', () => {
+                updateOutput(''); 
+                inputTextArea.value = ''; 
+            });
+
+            let currentTheme = 'vs-dark'; 
+            let isDarkTheme = true; // Body theme
+            themeToggle.addEventListener('click', () => {
+                if (isDarkTheme) {
+                    currentTheme = 'vs-light';
+                    document.body.classList.remove('dark-theme');
+                    isDarkTheme = false;
+                } else {
+                    currentTheme = 'vs-dark';
+                    document.body.classList.add('dark-theme');
+                    isDarkTheme = true;
+                }
+                monaco.editor.setTheme(currentTheme);
+            });
+
+            document.body.classList.add('dark-theme');
+            monaco.editor.setTheme('vs-dark');
+
+        });
+    </script>
+
+</body>
+
+</html>

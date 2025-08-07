@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gradients</title>
+        <style>
+            .linear {
+                width: 250px;
+                height: 250px;
+                background-image: linear-gradient(to top left,rgb(132, 132, 240),blue, purple,red, black);
+            }
+            .radial {
+                width: 250px;
+                height: 250px;
+                background-image: repeating-radial-gradient(black 5%, white 15%);
+                border-radius: 100%;
+            }
+            .conic {
+                width: 250px;
+                height: 200px;
+                /* background-image: conic-gradient(at 50% 50% ,purple,green,skyblue, blue); */
+                background-image: repeating-conic-gradient(purple 5%,green 10%,skyblue 15%, blue 20%);
+                /* border-radius: 100%; */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="linear"></div>
+        <div class="radial"></div>
+        <div class="conic"></div>
+    </body>
+</html>

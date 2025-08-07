@@ -1,0 +1,477 @@
+body{
+                background-color:2b2d42;
+           }
+            .layout{
+                width: 1000px;
+                height: 650px;
+                background-color:white;
+                position: absolute;
+                top: 55px;
+                left: 250px;
+                border-radius: 30px;
+                box-shadow: 0px 0px 40px rgba(0,0,0,0.8);
+            }
+            .content{
+                /* color:  white; */
+                font-size: 45px;
+                position: relative;
+                top: 10px;
+                left: 270px;
+                color: 2b2d42;
+            }
+            .c1{
+                /* color: white; */
+                font-size:25px;
+                position: relative;
+                top: 10px;
+                left: 150px;
+                color: 2b2d42;
+            }
+            .date{
+                /* color:white; */
+                position: relative;
+                left: 300px;
+                font-size: 20px;
+                color: 2b2d42;
+            }
+            .d1{
+                position: relative;
+                left: 330px;
+                color: 2b2d42;
+                text-align: center;
+            }
+            .c2{
+                /* color: white; */
+                font-size:25px;
+                position: relative;
+                top: 10px;
+                left: 100px;
+                color: 2b2d42;
+            }
+            .c3{
+                font-size: 30px;
+                position: relative;
+                top: 30px;
+                left: 110px;
+                color: 2b2d42;
+            }
+            .t1{
+                padding-top: 7px;
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-bottom: 10px;
+                position: relative;
+                top: 50px;
+                left: 90px;
+                border: 2px solid black;
+                background-color:8d99ae;
+                font-size: 20px;
+            }
+            .t2{
+                position: relative;
+                top: 70px;
+                left: 90px;
+                border: 2px solid black;
+                background-color: 8d99ae;
+                padding-top: 7px;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-bottom: 10px;
+                font-size: 20px;
+            }
+            .t3{
+                position: relative;
+                top: 90px;
+                left: 90px;
+                border: 2px solid black;
+                 background-color:8d99ae;
+                padding-top: 7px;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-bottom: 10px;
+                font-size: 20px;
+            }
+             .t4{
+                position: relative;
+                top: 110px;
+                left: 90px;
+                border: 2px solid black;
+                 padding-top: 10px;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-bottom: 10px;
+                font-size: 20px;
+                background-color:8d99ae;
+            }
+            .t5{
+                 position: relative;
+                top: 130px;
+                left: 90px;
+                border: 2px solid black;
+                 background-color:8d99ae;
+                  padding-top: 10px;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-bottom: 10px;
+                font-size: 20px;
+            }
+            .l1{
+                color: rgb(200, 198, 198);
+                position: relative;
+               bottom: 425px;
+                left: 410px;
+                font-size: 30px;
+            }
+            .l2{
+                color: 2b2d42;;
+                position: relative;
+                bottom: 460px;
+                left: 425px;
+                font-size: 30px;
+            }
+            .t6,.t7,.t8{
+                 position: relative;
+                bottom: 460px;
+                left: 413px;
+                border: 2px solid black;
+                 background-color:8d99ae;
+                  padding-left: 7px;
+                 padding-right: 10px;
+                 padding-top: 7px;
+                 padding-bottom: 10px;
+                 font-size: 20px;
+            }
+            .a1{
+                color:yellow;
+                position: relative;
+                bottom: 720px;
+                left: 700px;
+                font-size: 30px;
+            }
+            .a2{
+                color:2b2d42;;
+                position: relative;
+                 bottom: 750px;
+                left: 740px;
+                font-size: 30px;
+            }
+            .t9{
+                  position: relative;
+                 bottom: 750px;
+                left: 700px;
+                border: 2px solid black;
+                 background-color: 8d99ae;
+                 padding-top: 10px;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-bottom: 10px;
+                font-size: 20px;
+            }
+            .t10,.t11,.t12,.t13,.t14{
+                  position: relative;
+             bottom: 750px;
+                left: 700px;
+                border: 2px solid black;
+                 background-color: 8d99ae;
+                 padding-top: 10px;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-bottom: 10px;
+                font-size: 20px;
+            }
+            .button{
+                position: relative;
+                bottom: 1070px;
+                left: 460px;
+                border: 2px solid black;
+                 /* background-color:white; */
+                 padding-left: 20px;
+                 padding-right: 20px;
+                 padding-top: 10px;
+                 padding-bottom: 10px;
+                 font-size: 20px;
+                 cursor: pointer;
+                 border-radius: 9px;
+                 text-align: center;
+                 box-shadow:0px 0px 20px rgba(0,0,0,0.4);
+            }
+            .slot1{
+             width: 100px;
+             height:10px;
+                /* border: 1px solid black; */
+                 position: relative;
+                top: -103px;
+                left: 110px;
+                border-radius: 5px;
+                text-align: center;
+            /* background-color: white; */
+                color: green;
+                
+            }
+            .bslot1{
+                width: 90px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                top: -113px;
+                left: 220px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                color: rgb(225, 94, 94);
+            }
+            .slot2{
+                width: 100px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                top: -78px;
+                left: 110px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                 color: green;
+            }
+            .bslot2{
+                width: 90px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                top: -103px;
+                left: 220px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                color: rgb(225, 94, 94);
+            }
+            .slot3{
+                width: 100px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                top: -68px;
+                left: 110px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                 color: green;
+            }
+            .bslot3{
+                width: 90px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                top: -93px;
+                left: 220px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+              color: rgb(225, 94, 94);
+            }
+               .slot4{
+                width: 100px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                top: -57px;
+                left: 115px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                color: green;
+            }
+            .bslot4{
+                width: 90px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                top: -82px;
+                left: 220px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                color: rgb(225, 94, 94);
+            }
+            .slot5{
+                width: 100px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                top: -45px;
+                left: 115px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                color: green;
+            }
+            .bslot5{
+                width: 90px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                top: -70px;
+                left: 220px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+               color: rgb(225, 94, 94);
+            }
+            .slot6{
+                 width: 100px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                bottom: 1038px;
+                left: 720px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                color: green;
+            }
+            .bslot6{
+                 width: 100px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                bottom: 1063px;
+                left: 825px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                color: rgb(225, 94, 94);
+            }
+            .slot7{
+                 width: 100px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                bottom: 1028px;
+                left: 720px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                color: green;
+            }
+            .bslot7{
+                 width: 100px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                bottom: 1053px;
+                left: 825px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                color: rgb(225, 94, 94);
+            }
+            .slot8{
+                 width: 100px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                bottom: 1019px;
+                left: 720px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                color: green;
+            }
+            .bslot8{
+                 width: 100px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                bottom: 1044px;
+                left: 825px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                color: rgb(225, 94, 94);
+                
+            }
+            .slot9{
+                 width: 100px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                bottom: 1010px;
+                left: 724px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                color: green;
+            
+            }
+            .bslot9{
+                 width: 100px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                bottom: 1035px;
+                left: 825px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                color: rgb(225, 94, 94);
+            }
+            .slot10{
+                 width: 100px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                bottom: 1000px;
+                left: 724px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                color: green;
+            }
+            .bslot10{
+                 width: 100px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                bottom: 1025px;
+                left: 825px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                color: rgb(225, 94, 94);
+            }
+            .slot11{
+                 width: 100px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                bottom: 990px;
+                left: 724px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                color: green;
+            }
+            .bslot11{
+                 width: 100px;
+                height:25px;
+                /* border: 1px solid black; */
+                 position: relative;
+                bottom: 1015px;
+                left: 825px;
+                text-align: center;
+                border-radius: 5px;
+                /* background-color: white; */
+                color: rgb(225, 94, 94);
+            }
+            .image{
+                position: absolute;
+                top: 55px;
+                left: 730px;
+                box-shadow:0px 0px 30px rgba(0,0,0,0.5);
+            }
+            input[type="radio"]{
+                transform: scale(2);
+            }
+            /* body{
+                overflow-x: hidden;
+                overflow-y: hidden;
+            } */

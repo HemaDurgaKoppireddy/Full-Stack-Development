@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Layers</title>
+        <style>
+            .first {
+                width: 250px;
+                height: 300px;
+                background-color: red;
+                border: 3px solid black;
+                position: absolute;
+                z-index: 3;
+            }
+            .second {
+                width: 250px;
+                height: 300px;
+                background-color: rgb(114, 35, 225);
+                border: 3px solid black;
+                position: absolute;
+                top: 70px;
+                left: 70px;
+                z-index: 2;
+            }
+            .third {
+                width: 250px;
+                height: 300px;
+                background-color: rgb(5, 105, 26);
+                border: 3px solid black;
+                position: absolute;
+                top: 140px;
+                left: 140px;
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="first"></div>
+        <div class="second"></div>
+        <div class="third"></div>
+    </body>
+</html>

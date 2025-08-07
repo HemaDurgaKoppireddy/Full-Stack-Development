@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Math&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Segoe UI', sans-serif;
+                background: linear-gradient(135deg, #eef2f3, #dbe6f6);
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 40px 20px;
+            }
+            .calculator {
+                width: 330px;
+                height: 500px;
+                position: relative;
+                border: 3px solid rgb(23, 128, 198);
+                border-right: 10px solid rgb(23, 128, 198);
+                border-bottom: 10px solid rgb(23, 128, 198);
+                box-shadow: 0 20px 40px rgb(48, 90, 133);
+                border-radius: 30px;
+                background-color: rgb(4, 93, 145);
+                
+            }
+            .screen {
+                position: absolute;
+                top: 10px;
+                left: 14px;
+                width: 300px;
+                height: 100px;
+                /* border: 3px solid #dbe6f6; */
+                border-radius: 20px;
+                box-sizing: border-box;
+                background: linear-gradient(135deg, #eef2f3, #dbe6f6);
+            }
+            .noto-sans-math-regular {
+                font-family: "Noto Sans Math", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 50px;
+                position: absolute;
+                top: 35px;
+                left: 230px;
+            }
+
+            .buttons_frame {
+                position: absolute;
+                top: 120px;
+                left: 8px;
+                width: 310px;
+                height: 365px;
+                border: 3px solid rgb(9, 132, 188);
+                border-radius: 30px;
+                background-color: rgb(9, 132, 188);
+            }
+            .rectangle_buttons1 {
+                width: 60px;
+                height: 30px;
+                /* border: 2px solid black; */
+                border-radius: 20px;
+                font-weight: 500;
+                position: absolute;
+                top: 5px;
+                left: 12px;
+                text-align: center;
+                background-color: rgb(217, 148, 20);
+                border: 3px solid rgb(217, 148, 20);
+                /* box-shadow: 5px 5px 5px 2px rgb(217, 148, 20); */
+                cursor: pointer;
+
+            }
+            .rectangle_buttons1:hover{
+                opacity: 0.9;
+                transform: scale(1.04);
+            }
+            .rectangle_buttons2 {
+                width: 60px;
+                height: 30px;
+                font-size: 20px;
+                font-weight: 500;
+                border-radius: 20px;
+                position: absolute;
+                top: 5px;
+                left: 85px;
+                text-align: center;
+                background: linear-gradient(135deg, #eef2f3, #dbe6f6);
+                box-shadow: 0 20px 40px rgba(12, 12, 12, 0.1);
+                border: 3px solid rgba(255, 255, 255, 0.3); 
+                cursor: pointer;
+            }
+            .rectangle_buttons2:hover{
+                opacity: 0.9;
+                transform: scale(1.04);
+            }
+            .circle_buttons1 {
+                width: 50px;
+                height: 50px;
+                font-size: 35px;
+                font-weight: 400;
+                border-radius: 100%;
+                position: absolute;
+                text-align: center;
+                background: linear-gradient(135deg, #eef2f3, #dbe6f6);
+                box-shadow: 0 20px 40px rgba(12, 12, 12, 0.1);
+                border: 3px solid rgba(255, 255, 255, 0.3); 
+                cursor: pointer;
+            }
+            .circle_buttons1:hover{
+                opacity: 0.9;
+                transform: scale(1.04);
+            }
+            .rectangle_buttons9 {
+                width: 120px;
+                height: 50px;
+                font-size: 35px;
+                font-weight: 400;
+                border-radius: 20px;
+                position: absolute;
+                text-align: center;
+                background: linear-gradient(135deg, #eef2f3, #dbe6f6);
+                box-shadow: 0 20px 40px rgba(12, 12, 12, 0.1);
+                border: 3px solid rgba(255, 255, 255, 0.3); 
+                cursor: pointer;
+            }
+            .rectangle_buttons9:hover{
+                opacity: 0.9;
+                transform: scale(1.04);
+            }
+            .rectangle_buttons10 {
+                width: 50px;
+                height: 120px;
+                font-size: 35px;
+                font-weight: 500;
+                border-radius: 20px;
+                position: absolute;
+                text-align: center;
+                background: linear-gradient(135deg, #eef2f3, #dbe6f6);
+                box-shadow: 0 20px 40px rgba(12, 12, 12, 0.1);
+                border: 3px solid rgba(255, 255, 255, 0.3); 
+                cursor: pointer;
+            }
+            .rectangle_buttons10:hover{
+                opacity: 0.9;
+                transform: scale(1.01);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="calculator">
+            <div class="screen">
+                <div class="noto-sans-math-regular">00</div>
+            </div>
+            <div class="buttons_frame">
+                <div class="rectangle_buttons1" style="top: 5px; left: 12px;">ON/AC</div>
+                <button class="rectangle_buttons2" style="top: 5px; left: 85px;">GT</button>
+                <!-- <div class="rectangle_buttons2" style="top: 5px; left: 85px;">GT</div> -->
+                <div class="rectangle_buttons2" style="top: 5px; left: 160px;">%</div>
+                <div class="rectangle_buttons2" style="top: 5px; left: 235px;">/</div>
+                <div class="rectangle_buttons2" style="top: 55px; left: 12px;">MRC</div>
+                <div class="rectangle_buttons2" style="top: 55px; left: 85px;">M+</div>
+                <div class="rectangle_buttons2" style="top: 55px; left: 160px;">M-</div>
+                <div class="rectangle_buttons2" style="top: 55px; left: 235px;">X</div>
+                <div class="circle_buttons1" style="top: 105px; left: 12px;">7</div>
+                <div class="circle_buttons1" style="top: 105px; left: 85px;">8</div>
+                <div class="circle_buttons1" style="top: 105px; left: 160px;">9</div>
+                <div class="circle_buttons1" style="top: 105px; left: 235px;">-</div>
+                <div class="circle_buttons1" style="top: 170px; left: 12px;">4</div>
+                <div class="circle_buttons1" style="top: 170px; left: 85px;">5</div>
+                <div class="circle_buttons1" style="top: 170px; left: 160px;">6</div>
+                <div class="circle_buttons1" style="top: 170px; left: 235px;">+</div>
+                <div class="circle_buttons1" style="top: 235px; left: 12px;">1</div>
+                <div class="circle_buttons1" style="top: 235px; left: 85px;">2</div>
+                <div class="circle_buttons1" style="top: 235px; left: 160px;">3</div>
+                <div class="circle_buttons1" style="top: 300px; left: 160px;">.</div>
+                <div class="rectangle_buttons9" style="top: 300px; left: 12px;">0</div>
+                <div class="rectangle_buttons10" style="top: 235px; left: 235px;">=</div>
+                
+            </div>
+        </div>
+    </body>
+</html>

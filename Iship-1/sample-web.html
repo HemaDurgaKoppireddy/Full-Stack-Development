@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web Compiler</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: auto;
+      overflow: auto;
+    }
+
+    body {
+      background: #454545;
+      color: #00f2fe;
+    }
+
+    /* === Layout Container === */
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 10px;
+      gap: 10px;
+    }
+
+    /* === Toolbar with View Button === */
+    .toolbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 10px;
+    }
+
+    #viewToggle {
+      background-color: #00f2fe;
+      color: #000;
+      font-weight: bold;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #viewToggle:hover {
+      background-color: #00c9d6;
+    }
+
+    /* === View Box === */
+    .view-box {
+      display: none;
+      background-color: #1f1f1f;
+      color: #fff;
+      padding: 20px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    /* === Top Editors Section === */
+    .top-editors {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .left {
+      display: flex;
+      flex: 1;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* === Individual Editor === */
+    .editor {
+      flex: 1 1 30%;
+      display: flex;
+      flex-direction: column;
+      background: #1f1f1f;
+      border-radius: 6px;
+      overflow: hidden;
+      min-height: 400px;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      background: #000;
+      height: 30px;
+      padding-left: 10px;
+      font-size: 14px;
+    }
+
+    label i {
+      margin-right: 10px;
+      margin-left: 5px;
+    }
+
+    textarea {
+      flex: 1;
+      background: #1f1f1f;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      resize: none;
+      overflow: auto;
+    }
+
+    /* === Output Section === */
+    .right {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      border-radius: 6px;
+      overflow: hidden;
+      background: white;
+      min-height: 300px;
+    }
+
+    .right label {
+      background: #000;
+      color: #00f2fe;
+      font-weight: 500;
+      padding: 8px 12px;
+      font-size: 15px;
+    }
+
+    iframe {
+      width: 100%;
+      min-height: 100vh;
+      height: auto;
+      border: none;
+      background: #fff;
+    }
+
+    /* === Responsive Styling === */
+    @media (max-width: 1024px) {
+      .top-editors {
+        flex-direction: column;
+      }
+
+      .left {
+        flex-direction: column;
+      }
+
+      .editor {
+        min-height: 220px;
+      }
+
+      .right {
+        min-height: 300px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .editor {
+        min-height: 200px;
+      }
+
+      textarea {
+        font-size: 14px;
+      }
+
+      .right {
+        min-height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- View Toggle Button -->
+    <div class="toolbar">
+      <button id="viewToggle">View</button>
+    </div>
+
+    <!-- View Box Section -->
+    <div class="view-box" id="viewBox">
+      <p>This is the View Box! You can add custom content, previews, or instructions here.</p>
+    </div>
+
+    <!-- Editors and Output -->
+    <div class="top-editors">
+      <div class="left">
+        <div class="editor">
+          <label><i>&lt;/&gt;</i> HTML</label>
+          <textarea placeholder="Write HTML here..."></textarea>
+        </div>
+        <div class="editor">
+          <label><i>{ }</i> CSS</label>
+          <textarea placeholder="Write CSS here..."></textarea>
+        </div>
+        <div class="editor">
+          <label><i>()=&gt;</i> JS</label>
+          <textarea placeholder="Write JavaScript here..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <label>Output</label>
+      <iframe></iframe>
+    </div>
+
+  </div>
+
+  <!-- JavaScript for Toggle View -->
+  <script>
+    const viewToggle = document.getElementById("viewToggle");
+    const viewBox = document.getElementById("viewBox");
+
+    viewToggle.addEventListener("click", () => {
+      const isOpen = viewBox.style.display === "block";
+      viewBox.style.display = isOpen ? "none" : "block";
+      viewToggle.textContent = isOpen ? "View" : "Close View";
+    });
+  </script>
+</body>
+</html>

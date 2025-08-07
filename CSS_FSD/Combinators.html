@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Combinators</title>
+        <style>
+            .parent h1{
+                color: purple;
+            }
+            /* .parent > h1{
+                color: purple;
+            } */
+            .parent ~ h1 {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Top Outer h1</h1>
+        <div class="parent">
+            <h1>First</h1>
+            <h1>Second</h1>
+            <div>
+                <h1>Inner Child</h1>
+            </div>
+            <p>This is paragrapgh tag</p>
+        </div>
+        <h1>Bottom Outer h1</h1>
+        <p>Hello</p>
+        <h1>Bottom Outer h1</h1>
+    </body>
+</html>

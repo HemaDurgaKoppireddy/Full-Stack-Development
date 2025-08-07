@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Animations</title>
+        <style>
+            body {
+                background-color: black;
+            }
+            .demo {
+                width: 250px;
+                height: 250px;
+                background-color: white;
+                border-radius: 100%;
+                animation: animations2 4s infinite ;
+                position: relative;
+                left: 200px;
+                top: 200px;
+            }
+            @keyframes animations2 {
+                0% {
+                    box-shadow: 0px 0px 10px 10px rgb(236, 230, 230);
+                }
+                50% {
+                    box-shadow: 0px 0px 20px 20px rgb(223, 219, 219);
+                }
+                100% {
+                    box-shadow: 0px 0px 30px 30px rgb(207, 201, 201);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="demo"></div>
+    </body>
+</html>

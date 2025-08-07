@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pseudo Elements</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 90svh;
+            }
+            .demo{
+                position: relative;
+            }
+            .parent {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+                color: white;
+                text-shadow: 1px 1px 2px black;
+                position: relative;
+                width: 200px;
+                height: 70px;
+                background-color: green;
+                box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+                border-radius: 15px;
+                z-index: 1;
+                overflow: hidden;
+            }
+            .parent::before {
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to left, rgb(43, 192, 43), rgb(110, 214, 110));
+                z-index: -1;
+                transform: translateX(-300px);
+                transition: transform .5s linear;
+            }
+            .parent:hover::before {
+                transform: translateX(0px);
+            }
+
+
+
+            .parent2 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+                /* color: white; */
+                text-shadow: 1px 1px 2px black;
+                position: relative;
+                top: 100px;
+                width: 200px;
+                height: 70px;
+                /* background-color: green; */
+                box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+                border-radius: 15px;
+                border: 2px black solid;
+                z-index: 1;
+                overflow: hidden;
+            }
+            .parent2::before {
+                position: absolute;
+                /* top: 10px; */
+                left: 0px;
+                content: "";
+                width: 100%;
+                height: 150px;
+                background: rgb(92, 207, 217);
+                z-index: -1;
+                transform: translateX(-180px) skewX(-130deg);
+                transition: transform .5s linear;
+            }
+            .parent2:hover::before {
+                transform: translateX(-50px) skewX(-130deg);
+            }
+            .parent2::after {
+                position: absolute;
+                left: 30px;
+                content: "";
+                width: 100%;
+                height: 150px;
+                background: rgb(16, 156, 206);
+                z-index: -1;
+                transform: translateX(150px) skewX(-130deg);
+                transition: transform .5s linear;
+            }
+            .parent2:hover::after {
+                transform: translateX(70px) skewX(-130deg);
+            }
+
+
+
+            .parent3 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+                color: white;
+                text-shadow: 1px 1px 2px black;
+                position: relative;
+                top: 200px;
+                width: 200px;
+                height: 70px;
+                background-color: black;
+                box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+                border-radius: 15px;
+                z-index: 1;
+                transition: transform 0.2s linear;
+                /* overflow: hidden; */
+            }
+            .parent3:hover {
+                transform: translateY(5px);
+            }
+            .parent3::after {
+                position: absolute;
+                content: "";
+                width: 50px;
+                height: 50px;
+                background-image: linear-gradient(to bottom right, white, black);
+                /* background-color: white; */
+                /* border: 1px black solid; */
+                /* box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); */
+                opacity: 0.7;
+                filter: blur(2px);
+                border-radius: 100%;
+                transform: translateX(90px) translateY(30px);
+                transition: all 0.3s linear;
+            }
+            .parent3:hover::after {
+                transform: translateY(-4px);
+                width: 190px;
+                height: 60px;
+                border-radius: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="demo">
+            <div class="parent">Register</div>
+            <div class="parent2">Register</div>
+            <div class="parent3">Register</div>
+        </div>
+    </body>
+</html>

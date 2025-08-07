@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #0f0f1a 50%, #746ba3 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.full_box {
+  display: flex;
+  width: 1000px;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(4, 0, 0, 0.2);
+}
+
+.left_part {
+  flex: 1;
+  background: #0f0f1a;
+  color: rgb(191, 169, 128);
+  padding: 35px 30px;
+}
+
+.left_part h2, .left_part h3 {
+  font-size: 24px;
+  color: #b5a1e5;
+  margin-bottom: 20px;
+}
+
+.left_part p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.left_part ul {
+  padding-left: 20px;
+  font-size: 15px;
+  margin-bottom: 40px;
+  list-style: none;
+}
+.left_part li {
+  margin-bottom: 10px;
+}
+.left_part i {
+  margin-right: 10px;
+}
+
+.left_part a {
+  color: #b5a1e5;
+  text-decoration: none;
+}
+.left_part a:hover {
+  text-decoration: underline;
+}
+
+.icon-image {
+  width: 60px;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #aaa;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.right_part {
+  width: 550px;
+  background: #f5f5fa;
+  padding: 35px 30px;
+  border-left: 5px solid #746ba3;
+}
+
+.right_part h1 {
+  text-align: center;
+  font-size: 28px;
+  color: #41386d;
+  margin-bottom: 10px;
+}
+
+.right_part p {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+.form-fields {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 7px;
+  color: #333;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1.5px solid #ccc;
+  font-size: 15px;
+  background-color: #f5f5fa;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #5c5470;
+  box-shadow: 0 0 6px #b4a7d6;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.suggestion {
+  width: 100%;
+  background-color: #e6e3f2;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  color: #2f4f4f;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.submit {
+  background: linear-gradient(to right, #41386d, #5e4ca7);
+  color: white;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submit:hover {
+  opacity: 0.95;
+  transform: scale(1.02);
+}

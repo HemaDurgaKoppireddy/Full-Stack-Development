@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="login-section">
+      <h2 style="margin-bottom: 50px;">Admin Login</h2>
+      <p>Enter your admin credentials</p>
+      <form onsubmit="handleLogin(event)">
+        <input type="text" placeholder="Admin Username" required />
+        <div class="password-wrapper">
+          <input type="password" placeholder="Password" required />
+          <span class="toggle-password"></span>
+        </div>
+        <a href="forgetpassword.html" class="forgot">Forgot Password?</a>
+        <!-- Login -->
+        <button type="submit">Login</button>
+      </form>
+      <div class="back-link">
+        <span>Back to</span>
+        <a href="dashboard.html">Home page</a>
+      </div>
+    </div>
+    <div class="illustration-section">
+      <h1 style="margin-top: 60px;">Welcome to the<br><span>admin portal</span></h1>
+      <p>Authorized personnel access only.</p>
+      <img src="https://cdni.iconscout.com/illustration/premium/thumb/admin-control-panel-illustration-download-in-svg-png-gif-file-formats--interface-web-layout-webapp-and-development-pack-design-illustrations-3783964.png" alt="Admin Illustration" />
+    </div>
+    <script>
+      function handleLogin(event) {
+        event.preventDefault(); //  page reload
+        // Simulate login success
+        alert("Login Successful!");
+        window.location.href = "Admindashboard.html"; // Redirect to main project page
+      }
+    </script>
+  </div>
+</body>
+</html>

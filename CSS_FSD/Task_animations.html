@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day to Night Animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        .sky {
+            width: 100%;
+            height: 425px;
+            background: linear-gradient(to bottom, #87ceeb, #e0f7fa);
+            position: relative;
+            animation: skyTransition 30s infinite alternate;
+            overflow: hidden;
+        }
+        
+        @keyframes skyTransition {
+            0% {
+                background: linear-gradient(to bottom, #87ceeb, #e0f7fa);
+            }
+            100% {
+                background: linear-gradient(to bottom, #001f3f, #0a0a2a);
+            }
+        }
+        
+        .sun {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(241, 175, 54);
+            box-shadow: 0 0 60px 30px rgba(255, 222, 0, 0.6);
+            border-radius: 100%;
+            position: absolute;
+            top: 20px;
+            left: 75%;
+            animation: sunMove 30s infinite alternate;
+            z-index: 1;
+        }
+        
+        .moon {
+            width: 80px;
+            height: 80px;
+            background: #f5f5f5;
+            border-radius: 100%;
+            position: absolute;
+            top: 40px;
+            left: 75%;
+            box-shadow: 
+                0 0 30px 15px rgba(207, 201, 201, 0.5),
+                inset 15px -10px 0 0 #e0e0e0,
+                inset -25px -15px 0 0 #d0d0d0;
+            animation: moonMove 30s infinite alternate;
+            opacity: 0;
+            z-index: 1;
+        }
+        
+        @keyframes sunMove {
+            0% {
+                top: 20px;
+                left: 75%;
+                opacity: 1;
+                box-shadow: 0 0 60px 30px rgba(255, 222, 0, 0.6);
+            }
+            100% {
+                top: -100px;
+                left: 55%;
+                opacity: 0;
+                box-shadow: 0 0 0 0 transparent;
+            }
+        }
+        
+        @keyframes moonMove {
+            0% {
+                top: -100px;
+                left: 55%;
+                opacity: 0;
+                box-shadow: 0 0 0 0 transparent;
+            }
+            100% {
+                top: 40px;
+                left: 75%;
+                opacity: 1;
+                box-shadow: 0 0 30px 15px rgba(207, 201, 201, 0.5);
+            }
+        }
+        
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0;
+            animation: starsFade 30s infinite alternate;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite alternate;
+        }
+        
+        @keyframes starsFade {
+            0%, 40% { opacity: 0; }
+            70%, 100% { opacity: 1; }
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        
+        .tree {
+            width: 40px;
+            height: 200px;
+            background-color: #5c3a00;
+            position: absolute;
+            top: 230px;
+            z-index: 2;
+        }
+        
+        .branch {
+            width: 100px;
+            height: 100px;
+            background-color: #117a13;
+            border-radius: 100%;
+            position: absolute;
+            z-index: 2;
+            animation: branchColor 30s infinite alternate;
+        }
+        
+        @keyframes branchColor {
+            0% { background-color: #117a13; }
+            100% { background-color: #0a3d0a; }
+        }
+        
+        .road {
+            width: 100%;
+            height: 250px;
+            background-color: rgb(27, 24, 24);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .whiteblocks {
+            width: 100px;
+            height: 30px;
+            background-color: white;
+            position: absolute;
+            top: 110px;
+        }
+        
+        .car-img {
+            position: absolute;
+            width: 250px;
+            height: auto;
+            top:  30px;
+            right: 0;
+            animation: carMove 15s linear infinite;
+            z-index: 10;
+        }
+        
+        @keyframes carMove {
+            0% { right: -300px; }
+            100% { right: 100%; }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="sky">
+        <div class="sun"></div>
+        <div class="moon"></div>
+        
+        <div class="stars">
+            <div class="star" style="width: 2px; height: 2px; top: 50px; left: 20%;"></div>
+            <div class="star" style="width: 3px; height: 3px; top: 100px; left: 40%;"></div>
+            <div class="star" style="width: 2px; height: 2px; top: 80px; left: 60%;"></div>
+            <div class="star" style="width: 4px; height: 4px; top: 120px; left: 30%;"></div>
+            <div class="star" style="width: 3px; height: 3px; top: 150px; left: 70%;"></div>
+        </div>
+        
+        <div class="tree" style="left: 135px;"></div>
+        <div class="branch" style="left: 50px; top: 190px;"></div>
+        <div class="branch" style="left: 40px; top: 250px;"></div>
+        <div class="branch" style="left: 100px; top: 170px;"></div>
+        <div class="branch" style="left: 100px; top: 250px;"></div>
+        <div class="branch" style="left: 150px; top: 190px;"></div>
+        <div class="branch" style="left: 160px; top: 250px;"></div>
+
+        <div class="tree" style="left: 900px;"></div>
+        <div class="branch" style="left: 815px; top: 190px;"></div>
+        <div class="branch" style="left: 805px; top: 250px;"></div>
+        <div class="branch" style="left: 865px; top: 170px;"></div>
+        <div class="branch" style="left: 865px; top: 250px;"></div>
+        <div class="branch" style="left: 915px; top: 190px;"></div>
+        <div class="branch" style="left: 925px; top: 250px;"></div>
+
+        <div class="tree" style="left: 1300px;"></div>
+        <div class="branch" style="left: 1215px; top: 190px;"></div>
+        <div class="branch" style="left: 1205px; top: 250px;"></div>
+        <div class="branch" style="left: 1265px; top: 170px;"></div>
+        <div class="branch" style="left: 1265px; top: 250px;"></div>
+        <div class="branch" style="left: 1315px; top: 190px;"></div>
+        <div class="branch" style="left: 1325px; top: 250px;"></div>
+    </div>
+    
+    <div class="road">
+        <div class="whiteblocks" style="left: 20px;"></div>
+        <div class="whiteblocks" style="left: 200px;"></div>
+        <div class="whiteblocks" style="left: 400px;"></div>
+        <div class="whiteblocks" style="left: 600px;"></div>
+        <div class="whiteblocks" style="left: 800px;"></div>
+        <div class="whiteblocks" style="left: 1000px;"></div>
+        <div class="whiteblocks" style="left: 1200px;"></div>
+        <div class="whiteblocks" style="left: 1400px;"></div>
+        
+        <img class="car-img" src="./car_img.png" alt="Car">
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>Animations</title>
+        <style>
+            .sky {
+                width: 100%;
+                height: 450px;
+                background-image: linear-gradient(to bottom, skyblue, white);
+                position: relative;
+            }
+            .sun {
+                width: 100px;
+                height: 100px;
+                border-radius: 100%;
+                position: relative;
+                top: 20px;
+                left: 75%;
+                animation: suntomoon 10s infinite ;
+            }
+            @keyframes suntomoon {
+                0% {
+                    background-color: rgb(241, 175, 54);
+                    box-shadow: 0px 0px 10px 10px rgb(244, 179, 59);
+                }
+                25% {
+                    background-color: rgb(241, 175, 54);
+                    box-shadow: 0px 0px 20px 20px rgb(244, 179, 59);
+                }
+                50% {
+                    background-color: rgb(241, 175, 54);
+                    box-shadow: 0px 0px 20px 20px rgb(244, 179, 59);
+                }
+                75% {
+                    background-color: white;
+                    box-shadow: 0px 0px 20px 20px rgb(207, 201, 201);
+                }
+                100% {
+                    background-color: white;
+                    box-shadow: 0px 0px 30px 30px rgb(207, 201, 201);
+                }
+            }
+            .tree {
+                width: 40px;
+                height: 200px;
+                background-color: brown;
+                position: absolute;
+            }
+            .branch {
+                width: 100px;
+                height: 100px;
+                background-color: green;
+                border-radius: 100%;
+                position: absolute;
+            }
+            .road {
+                width: 100%;
+                height: 250px;
+                border: 2px solid black;
+                background-color: rgb(27, 24, 24);
+                position: relative;
+            }
+            .whiteblocks {
+                width: 100px;
+                height: 30px;
+                background-color: white;
+                position: absolute;
+                top: 110px;
+            }
+            .car {
+                position: absolute;
+                font-size: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="sky">
+            <div class="sun"></div>
+            <div class="tree" style="top: 255px; left: 135px;"></div>
+            <div class="branch" style="left: 50px; top: 215px;"></div>
+            <div class="branch" style="left: 40px; top: 275px;"></div>
+            <div class="branch" style="left: 100px; top: 195px;"></div>
+            <div class="branch" style="left: 100px; top: 275px;"></div>
+            <div class="branch" style="left: 150px; top: 215px;"></div>
+            <div class="branch" style="left: 160px; top: 275px;"></div>
+
+            <div class="tree" style="top: 255px; left: 900px;"></div>
+            <div class="branch" style="left: 815px; top: 215px;"></div>
+            <div class="branch" style="left: 805px; top: 275px;"></div>
+            <div class="branch" style="left: 865px; top: 195px;"></div>
+            <div class="branch" style="left: 865px; top: 275px;"></div>
+            <div class="branch" style="left: 915px; top: 215px;"></div>
+            <div class="branch" style="left: 925px; top: 275px;"></div>
+
+            <div class="tree" style="top: 255px; left: 1300px;"></div>
+            <div class="branch" style="left: 1215px; top: 215px;"></div>
+            <div class="branch" style="left: 1205px; top: 275px;"></div>
+            <div class="branch" style="left: 1265px; top: 195px;"></div>
+            <div class="branch" style="left: 1265px; top: 275px;"></div>
+            <div class="branch" style="left: 1315px; top: 215px;"></div>
+            <div class="branch" style="left: 1325px; top: 275px;"></div>
+        </div>
+        <div class="road">
+            <div class="whiteblocks" style="left: 20px;"></div>
+            <div class="whiteblocks" style="left: 200px;"></div>
+            <div class="whiteblocks" style="left: 400px;"></div>
+            <div class="whiteblocks" style="left: 600px;"></div>
+            <div class="whiteblocks" style="left: 800px;"></div>
+            <div class="whiteblocks" style="left: 1000px;"></div>
+            <div class="whiteblocks" style="left: 1200px;"></div>
+            <div class="whiteblocks" style="left: 1400px;"></div>
+            <marquee direction="left">
+                <div class="car">🚕</div>
+            </marquee>
+        </div>
+    </body>
+</html> -->
