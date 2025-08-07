@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 30px;
+}
+.grandparent {
+    perspective: 500px;
+}
+.parent {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 500px;
+    transition: transform 1s linear;
+    transform-style: preserve-3d;
+}
+.parent:hover {
+    transform: rotateY(180deg);
+}
+.front_card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 300px;
+    height: 500px;
+    background-color: rgb(236, 103, 236);
+    box-shadow: 0px 0px 20px 5px rgb(55, 54, 54);
+    backface-visibility: hidden;
+}
+.image_circle {
+    position: absolute;
+    top: 100px;
+    width: 150px;
+    height: 180px;
+    background-color: rgb(232, 156, 232);
+    border-radius: 100%;
+}
+.baby_pic {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 130px;
+    height: 160px;
+    border-radius: 100%;
+}
+.back_card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 300px;
+    height: 500px;
+    background-color: rgb(15, 166, 225);
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}

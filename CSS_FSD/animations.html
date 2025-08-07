@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Animations</title>
+        <style>
+            .demo1 {
+                width: 200px;
+                height: 200px;
+                background-color: blue;
+                /* animation-name: Myanimations;
+                animation-duration: 4s;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease-in;
+                animation-direction: alternate-reverse;
+                animation-delay: 2s; */
+                animation: change 4s ease-in 1 alternate-reverse;
+                position: relative;
+            }
+            .demo2 {
+                width: 200px;
+                height: 200px;
+                background-color: pink;
+                animation-name: change;
+                animation-duration: 4s;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease-out;
+                animation-direction: alternate;
+                position: relative;
+            }
+            .demo3 {
+                width: 200px;
+                height: 200px;
+                background-color: green;
+                animation-name: change;
+                animation-duration: 4s;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease-in-out;
+                animation-direction: alternate-reverse;
+                position: relative;
+            }
+            .demo4 {
+                width: 200px;
+                height: 200px;
+                background-color: yellow;
+                animation-name: change;
+                animation-duration: 4s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-direction: alternate;
+                position: relative;
+            }
+
+            /* @keyframes Myanimations {
+                from {
+                    background-color: black;
+                    left: 0px;
+                }
+                to {
+                    background-color: pink;
+                    left: 300px;
+                }
+            } */
+
+            @keyframes change {
+                0% {
+                    /* background-color: black; */
+                    left: 0px;
+                    border-radius: 0px;
+                }
+                50% {
+                    /* background-color: yellow; */
+                    /* left: 150px; */
+                    left: 400px;
+                    border-radius: 25px;
+                }
+                100% {
+                    /* background-color: pink; */
+                    left: 200px;
+                    border-radius: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="demo1"></div>
+        <div class="demo2"></div>
+        <div class="demo3"></div>
+        <div class="demo4"></div>
+    </body>
+</html>

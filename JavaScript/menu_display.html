@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Menu Display</title>
+        <style>
+            * {
+                margin: 0;
+            }
+            body {
+                position: relative;
+            }
+            .menu_content {
+                width: 200px;
+                height: 100svh;
+                /* border: 2px solid; */
+                display: flex;
+                flex-direction: column;
+                background-color: blue;
+                position: absolute;
+                left: 0px;
+            }
+            .menu_content span {
+                font-size: 45px;
+                color: white;
+                /* object-fit: content; */
+                cursor: pointer;
+            }
+
+            .menu_content div {
+                width: 100%;
+                padding: 10px 0px;
+                font-size: 22px;
+                color: white;
+                border-bottom: 1px rgb(156, 156, 229) solid;
+            }
+            .menu_content div:hover {
+                background-color: rgb(156, 156, 238);
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="menu_content">
+            <span onclick="closee()">&times;</span>
+            <button onclick="Open()">&#19977;</button>
+            <div>Home</div>
+            <div>Courses</div>
+            <div>About</div>
+            <div>Contact</div>
+            <div>Service</div>
+        </div>
+        <script>
+            function closee() {
+                document.getElementsByClassName("menu_content")[0].style ="left: -200px"
+            }
+        </script>
+    </body>
+</html>

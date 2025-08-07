@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fun1()
+        {
+            console.log("Hello Focussed");
+        }
+        function fun2()
+        {
+            console.log("Hello Blurred");
+        }
+        function fun3()
+        {
+            window.alert("Scrolled");
+        }
+         function onResize() {
+            window.alert("Resized");
+        }
+        window.onload = function () {
+        window.prompt("Enter Name: ");
+        window.alert("Hello!");
+        window.onfocus=fun1();
+        window.onblur=fun2();
+        window.onscroll=fun3();
+        window.addEventListener("resize", onResize);
+    }
+    </script>
+    <style>
+        .child{
+            height: 200svh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body onscroll="fun3()">
+    <div class="child">
+
+    </div>
+</body>
+</html>

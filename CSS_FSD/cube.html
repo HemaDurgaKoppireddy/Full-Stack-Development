@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cube</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100svh;
+                perspective: 1000px;
+                background-color: black;
+            }
+            .cube{
+                position: relative;
+                width: 300px;
+                height: 300px;
+                /* border: 1px white solid; */
+                transform-style: preserve-3d;
+                animation: Cube_animation 4s infinite linear;
+            }
+            @keyframes Cube_animation {
+                100% {
+                    transform: rotateX(360deg) rotateY(360deg);
+                }
+            }
+            .cube > div {
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                /* opacity: 0.9; */
+            }
+            
+            .right {
+                /* background-color: #898AC4; */
+                background-color: rgb(182, 9, 9);
+                display: grid;
+                grid-template-rows: 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
+                transform: rotateY(90deg) translateZ(150px);
+            }
+            .child {
+                border: 1px rgb(200, 183, 183) solid;
+                border-radius: 15px;
+            }
+            .left {
+                /* background-color: #898AC4; */
+                background-color: rgb(221, 221, 3);
+                transform: rotateY(90deg) translateZ(-150px);
+                display: grid;
+                grid-template-rows: 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            .front {
+                /* background-color: #C0C9EE; */
+                background-color: rgb(9, 9, 186);
+                transform: rotateX(90deg) translateZ(150px);
+                display: grid;
+                grid-template-rows: 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            .back {
+                /* background-color: #C0C9EE; */
+                background-color: rgb(174, 117, 12);
+                transform: rotateX(90deg) translateZ(-150px);
+                display: grid;
+                grid-template-rows: 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            .top {
+                /* background-color: #687FE5; */
+                background-color: rgb(3, 101, 3);
+                transform: translateZ(150px);
+                display: grid;
+                grid-template-rows: 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            .bottom {
+                /* background-color: #687FE5; */
+                background-color: white;
+                transform: translateZ(-150px);
+                display: grid;
+                grid-template-rows: 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="cube">
+            <div class="right">
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+            </div>
+            <div class="left">
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+            </div>
+            <div class="front">
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+            </div>
+            <div class="back">
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+            </div>
+            <div class="top">
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+            </div>
+            <div class="bottom">
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>EASE | Schedule, Track, Pay</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      height: 100vh;
+      background: linear-gradient(#746ba3,#746ba3);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /*@keyframes gradient {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }*/
+
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #746ba3;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: white;
+      text-shadow:  20px 20px 100px black;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      color: #ccc;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 3rem 0;
+      gap: 2rem;
+    }
+
+    .card {
+      width: 250px;
+      height: 300px;
+      background-color:rgb(18, 15, 15);
+      box-shadow: 4px 4px 25px #746ba3;
+      border-radius: 30px;
+      /*perspective: 1000px;*/
+    }
+
+    .inner-card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+    }
+
+    .card:hover .inner-card {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      padding: 2rem;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card-front h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #0ff;
+    }
+
+    .card-front p {
+      color: #eee;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      color: #fff;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 1.5rem;
+      background-color: #746ba3;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>EASE</h1>
+    <div class="tagline">Schedule. Track. Pay. Effortlessly.</div>
+  </header>
+
+  <section class="cards">
+    <div class="card">
+      <div class="inner-card">
+        <div class="card-front">
+          <h3>📅 Schedule</h3>
+          <p>Quickly organize tasks and appointments in one place.</p>
+        </div>
+        <div class="card-back">
+          <p>Create recurring events, set reminders, and never miss a deadline again. Everything is tailored to your productivity style.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="inner-card">
+        <div class="card-front">
+          <h3>📍 Track</h3>
+          <p>Monitor progress with beautiful visuals and summaries.</p>
+        </div>
+        <div class="card-back">
+          <p>Stay in control with daily, weekly, and monthly insights. Get notified when tasks shift or progress slows.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="inner-card">
+        <div class="card-front">
+          <h3>💳 Pay</h3>
+          <p>Simple and secure payment solutions at your fingertips.</p>
+        </div>
+        <div class="card-back">
+          <p>Connect your wallet, track billing history, and manage all your transactions seamlessly within the app.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 EASE — Crafted for simplicity and speed.
+  </footer>
+
+</body>
+</html>

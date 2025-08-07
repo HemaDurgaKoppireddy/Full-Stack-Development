@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Rubix Cube
+    </title>
+    <style>
+        body{
+            display:flex;
+            align-items: center;
+            justify-content:center;
+            height:100svh;
+            background-color:white;
+            perspective:2000px;
+        }
+        .cube{
+            width:200px;
+            height:200px;
+            border:1px black solid;
+            animation:mahesh 5s infinite linear;
+            transform-style:preserve-3d;
+            position:relative;
+        }
+        @keyframes mahesh{
+            50%{
+                transform: rotateX(360deg);
+            }
+            100%{
+                transform: rotateX(360deg) rotateY(360deg);
+            } 
+            /* 0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            } */
+            /* 0% {
+                transform: rotateX(360deg);
+            }
+
+            50% {
+                transform: rotateX(0deg);
+            } */
+
+            /* 100% {
+                transform: rotateX(0deg);
+                transform:  rotateY(360deg) rotateX(360deg);
+            } */
+        }
+
+
+        .cube > div{
+            width:200px;
+            height:200px;
+        }
+        .right{
+            position:absolute;
+            background-color:red;
+            transform: rotateY(90deg) translateZ(100px);
+            display:grid;
+            grid-template-rows:repeat(3,1fr);
+            grid-template-columns:repeat(3,1fr);
+        }
+        .left{
+            position:absolute;
+            background-color:yellow;
+            transform: rotateY(90deg) translateZ(-100px);
+            grid-template-rows:repeat(3,1fr);
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+        }
+        .front{
+            position:absolute;
+            background-color:blue;
+            transform: rotateX(90deg) translateZ(100px);
+            grid-template-rows:repeat(3,1fr);
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+        }
+        .back{
+            position:absolute;
+            background-color:green;
+            transform: rotateX(90deg) translateZ(-100px);
+            grid-template-rows:repeat(3,1fr);
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+        }
+        .top{
+            position:absolute;
+            background-color:white;
+            transform:translateZ(100px);
+            grid-template-rows:repeat(3,1fr);
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+        }
+        .bottom{
+            position:absolute;
+            background-color:orange;
+            transform:translateZ(-100px);
+            grid-template-rows:repeat(3,1fr);
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+        }
+        .child{
+            border:1px black solid;
+            border-radius:10%;
+        }
+    </style>
+</head>
+<body>
+    <div class='cube'>
+        <div class='right'>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div> 
+        </div>
+        <div class='left'>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+        </div>
+        <div class='top'>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+        </div>
+        <div class='bottom'>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+        </div>
+        <div class='front'>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+        </div>
+        <div class='back'>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+            <div class='child'></div>
+        </div>  
+    </div>
+</body>
+</html>

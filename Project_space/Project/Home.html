@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <title>EASE | Schedule, Track, Pay</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            /*background: linear-gradient(#746ba3, #746ba3);*/
+            background-color:white;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav {
+            width: 100%;
+            background-color: #746ba3;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo {
+            height: 80px;
+            width: auto;
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-toggle-label {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #f8d4c1;;
+            font-weight: 900;
+            font-size: larger;
+            
+            font-family: sans-serif;
+            /*transition: color 0.3s;*/
+        }
+
+        .nav-links li a:hover {
+            color: rgb(0, 0, 0);
+        }
+
+        .profile-container {
+            position: relative;
+        }
+
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: white;
+            color: black;
+            width: 160px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 999;
+        }
+
+        .dropdown a {
+            padding: 12px;
+            text-decoration: none;
+            color: black;
+            /*transition: background 0.3s;*/
+        }
+
+        .dropdown a:hover {
+            background-color: black;
+            color: #f8d4c1;
+        }
+
+        .profile-container:hover .dropdown {
+            display: flex;
+            background-color: #f8d4c1;
+        }
+
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 2rem 1rem;
+            /*background-color: #746ba3;*/
+            background-color:white;
+
+        }
+
+        header h1 {
+            font-size: 60px;
+            color: rgb(16, 16, 16);
+            font-family: Arial, Helvetica, sans-serif;
+            text-shadow: 4px 4px 10px #f8d4c1;
+        }
+
+        .tagline {
+            font-size: 20px;
+            font-style: strong;
+            
+            margin-top: 0.5rem;
+            
+            color:#746ba3
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+            gap: 2rem;
+
+        }
+
+        .card {
+            width: 250px;
+            height: 300px;
+            background-color: rgb(18, 15, 15);
+            box-shadow: 4px 4px 25px #746ba3;
+            border-radius: 30px;
+        }
+
+        .inner-card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 1s;
+            transform-style: preserve-3d;
+        }
+
+        .card:hover .inner-card {
+            transform: rotateY(180deg);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 29px;
+            color:#f8d4c1;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-front h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color:#746ba3;
+        }
+
+        .card-front p {
+            color:#f8d4c1;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            color: #f8d4c1;;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 1.5rem;
+            background-color: #746ba3;
+            font-size: 0.9rem;
+            color: #aaa;
+            width: 100%;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-toggle-label {
+                display: block;
+                align-self: flex-end;
+            }
+
+            .nav-right {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                background-color: #5d569b;
+                padding: 1rem;
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+
+            .nav-toggle:checked+.nav-toggle-label+.nav-right {
+                display: flex;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="nav-left">
+                <img src="Logo.jpeg" alt="Logo" class="nav-logo">
+            </div>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">☰</label>
+
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="Slot.html">Slot Booking</a></li>
+                    <li><a href="Queue.html">Queue Tracker</a></li>
+                    <li><a href="help_center.html">Help</a></li>
+                </ul>
+                <div class="profile-container">
+                    <img src="Prof.jpeg" class="profile-icon" alt="Profile">
+                    <div class="dropdown">
+                        <a href="login.html">Add Account</a>
+                        <a href="dashboard.html">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1>EASE</h1>
+        <div class="tagline">Schedule. Track. Pay. Effortlessly.</div>
+    </header>
+
+    <section class="cards">
+        <div class="card" id="schedule">
+            <div class="inner-card">
+                <div class="card-front">
+                    <h2>📅 Schedule</h2>
+                    <p>Quickly organize tasks and appointments in one place.</p>
+                </div>
+                <div class="card-back">
+                    <p>Create recurring events, set reminders, and never miss a deadline again. Everything is tailored
+                        to your productivity style.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="track">
+            <div class="inner-card">
+                <div class="card-front">
+                    <h2>📍 Track</h2>
+                    <p>Monitor progress with beautiful visuals and summaries.</p>
+                </div>
+                <div class="card-back">
+                    <p>Stay in control with daily, weekly, and monthly insights. Get notified when tasks shift or
+                        progress slows.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="pay">
+            <div class="inner-card">
+                <div class="card-front">
+                    <h2>💳 Pay</h2>
+                    <p>Simple and secure payment solutions at your fingertips.</p>
+                </div>
+                <div class="card-back">
+                    <p>Connect your wallet, track billing history, and manage all your transactions seamlessly within
+                        the app.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        © 2025 EASE — Crafted for simplicity and speed.
+    </footer>
+
+</body>
+</html>

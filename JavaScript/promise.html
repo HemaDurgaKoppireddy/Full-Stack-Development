@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Promises</title>
+    </head>
+    <body>
+
+        <script>
+            const result = new Promise(function(resolved, rejected){
+                var a = 10;
+                if(a>=18){
+                    resolved("Eligible");
+                }
+                else {
+                    rejected("Not Eligible");
+                }
+            });
+          //  console.log(result);
+            
+            result.then(function(){ 
+                console.log(result);
+            })
+            .catch(function(){
+                console.log(result);
+            })
+        </script>
+
+        <script>
+            function codeA(){
+                return new Promise(function(resolve){
+                    setTimeout(function() {
+                        resolve(1)
+                    }, 1000);
+                })
+            }
+            function codeB(value){
+                return new Promise(function(resolve){
+                    setTimeout(function() {
+                        resolve(value+1)
+                    }, 1000);
+                })
+            }
+            function codeC(value){
+                return new Promise(function(resolve){
+                    setTimeout(function() {
+                        resolve(value+1)
+                    }, 1000);
+                })
+            }
+
+            async function execute() {
+                try {
+                    const res1 = await codeA()
+                    const res2 = await codeB(res1)
+                    const res3 = await codeC(res2)
+                    console.log("result is : ", res3);
+                }
+                catch(error) {
+                    console.log(error);
+                }
+            }
+
+            execute()
+
+
+            // codeA().then(function(codeA){
+            //     console.log("codeA completed", codeA);
+            //     codeB(codeA).then(function(codeB){
+            //         console.log("codeB completed", codeB);
+            //         codeC(codeB).then(function(codeC){
+            //             console.log("codeC completed", codeC);
+            //             console.log("result is: ", codeC)
+            //         })
+            //     })
+            // })
+        </script>
+    </body>
+</html>

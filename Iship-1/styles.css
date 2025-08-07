@@ -1,0 +1,289 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #282c34;
+    color: #abb2bf;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.game-container {
+    background-color: #3a404a;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+}
+
+h1 {
+    color: #61afef;
+    margin-bottom: 30px;
+    font-size: 2.8em;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+h2 {
+    color: #98c379;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+/* --- Level Selection Grid --- */
+.levels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    padding: 20px;
+    border-top: 1px solid #4b525d;
+    padding-top: 30px;
+}
+
+.level-card {
+    background-color: #4b525d;
+    border-radius: 10px;
+    padding: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid transparent; /* Default transparent border */
+}
+
+.level-card h3 {
+    color: #e5c07b;
+    margin-top: 15px;
+    font-size: 1.5em;
+    margin-bottom: 8px;
+    z-index: 2; /* Ensure text is above indicators */
+}
+
+.level-card p {
+    color: #abb2bf;
+    font-size: 0.95em;
+    line-height: 1.5;
+    text-align: center;
+    z-index: 2;
+}
+
+/* --- Unique Status Indicators --- */
+
+.level-status-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Make it a circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: #fff;
+    z-index: 3;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* State: Locked */
+.level-card.locked {
+    filter: brightness(60%) saturate(50%);
+    opacity: 0.7;
+    cursor: not-allowed;
+    border-color: #555;
+}
+.level-card.locked .level-status-indicator {
+    background-color: #8b0000; /* Dark red for locked */
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+}
+.level-card.locked .level-status-indicator::before {
+    content: '🔒'; /* Lock emoji */
+}
+
+/* State: Unlocked (Ready to play, not yet completed optimally) */
+.level-card.unlocked {
+    filter: brightness(100%) saturate(100%);
+    opacity: 1;
+    cursor: pointer;
+    border-color: #61afef; /* Blue border */
+    box-shadow: 0 6px 12px rgba(97, 175, 239, 0.3);
+}
+.level-card.unlocked:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(97, 175, 239, 0.5);
+    background-color: #5c6370;
+}
+.level-card.unlocked .level-status-indicator {
+    background-color: #52a05d; /* Greenish for unlocked/ready */
+    box-shadow: 0 0 10px rgba(82, 160, 93, 0.5);
+}
+.level-card.unlocked .level-status-indicator::before {
+    content: '⚡'; /* Lightning bolt for challenge */
+}
+
+/* State: Completed (but not best score) */
+.level-card.completed {
+    border-color: #e5c07b; /* Orange border */
+    box-shadow: 0 6px 12px rgba(229, 192, 123, 0.3);
+    background-color: #444c56; /* Slightly darker background */
+}
+.level-card.completed .level-status-indicator {
+    background-color: #d1b800; /* Goldish for completed */
+    box-shadow: 0 0 10px rgba(209, 184, 0, 0.5);
+}
+.level-card.completed .level-status-indicator::before {
+    content: '✅'; /* Checkmark for completed */
+}
+
+/* State: Best Score / Perfect Completion */
+.level-card.best-score {
+    background-color: #28a745; /* Vibrant green background */
+    border-color: #20c997; /* Brighter green border */
+    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6);
+    animation: pulseGlow 1.5s infinite alternate; /* Subtle glow animation */
+}
+.level-card.best-score h3,
+.level-card.best-score p {
+    color: #ffffff; /* White text for contrast */
+}
+.level-card.best-score .level-status-indicator {
+    background-color: #ffee00; /* Bright yellow */
+    box-shadow: 0 0 20px #ffee00, 0 0 30px #ffee00; /* Intense glow */
+    color: #333; /* Darker icon color for contrast */
+}
+.level-card.best-score .level-status-indicator::before {
+    content: '🏆'; /* Trophy emoji for excellence */
+}
+
+/* Pulse Glow Animation for Best Score */
+@keyframes pulseGlow {
+    from { box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6); }
+    to { box-shadow: 0 8px 25px rgba(40, 167, 69, 0.8), 0 0 10px rgba(255, 255, 255, 0.3); }
+}
+
+
+/* --- Level Progress Bar --- */
+.level-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 8px; /* Height of the progress bar */
+    background-color: #61afef; /* Default progress color */
+    width: 0%; /* Initial width, will be set by JS */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: width 0.5s ease-out, background-color 0.3s ease;
+    z-index: 1;
+}
+
+.level-card.best-score .level-progress {
+    background-color: #20c997; /* Green for best score */
+}
+
+
+/* Quiz Area Styles (No significant changes here from previous) */
+.quiz-area {
+    background-color: #3a404a;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-top: 40px;
+}
+
+.quiz-area h2 {
+    color: #61afef;
+    margin-bottom: 25px;
+    font-size: 2.2em;
+}
+
+.quiz-question {
+    font-size: 1.4em;
+    margin-bottom: 30px;
+    color: #c678dd;
+    line-height: 1.6;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.quiz-options button {
+    background-color: #5c6370;
+    color: #abb2bf;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-align: left;
+}
+
+.quiz-options button:hover {
+    background-color: #61afef;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.quiz-options button.selected {
+    background-color: #61afef;
+    color: #ffffff;
+    border: 2px solid #61afef;
+}
+
+.quiz-options button.correct {
+    background-color: #28a745;
+    color: #ffffff;
+    border: 2px solid #28a745;
+}
+
+.quiz-options button.incorrect {
+    background-color: #dc3545;
+    color: #ffffff;
+    border: 2px solid #dc3545;
+}
+
+button#next-question-btn,
+button#back-to-levels-btn {
+    background-color: #98c379;
+    color: #3a404a;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin: 10px;
+}
+
+button#next-question-btn:hover,
+button#back-to-levels-btn:hover {
+    background-color: #7bdc7b;
+    transform: translateY(-2px);
+}
+
+#quiz-result {
+    margin-top: 25px;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #e5c07b;
+}
+
+.hidden {
+    display: none;
+}

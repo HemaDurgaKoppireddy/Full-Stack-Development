@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home Page</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            .top_part{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #b36bb5;
+                position: relative;
+                padding: 10px 30px;
+            }
+            .logo {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+            }
+            .center_items {
+                display: flex;
+                gap: 80px;
+            }
+            .items {
+                position: relative;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .list {
+                display: none;
+                width: 130px;
+                position: absolute;
+                font-weight:lighter;
+                background-color: #7259c0;
+            }
+            .list div {
+                border-bottom: 1px solid white;
+                padding: 10px;
+            }
+            .list div:hover {
+                background-color: rgb(156, 156, 241);
+            }
+            .items:hover .list {
+                display: block;
+            }
+            .user {
+                position: relative;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: rgb(172, 146, 228);
+                cursor: pointer;
+            }
+            .user_list {
+                display: none;
+                width: 150px;
+                position: absolute;
+                top: 100%;
+                /* left: -100px; */
+                right: 0px;
+                background-color: #7259c0;
+            }
+            .user_list div {
+                color: white;
+                border-bottom: 1px solid white;
+                padding: 10px;
+            }
+            .user_list div:hover {
+                background-color: rgb(156, 156, 241);
+            }
+            .user:hover .user_list {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="top_part">
+            <div class="logo">
+                <img class="logo" src="./logo_pic.avif" alt="not available">
+            </div>
+            
+            
+            <div class="center_items">
+                <div class="items">Home
+                    <div class="list">
+                        <div>Overview</div>
+                        <div>News</div>
+                        <div>Updates</div>
+                    </div>
+                </div>
+                <div class="items">Products
+                    <div class="list">
+                        <div>New Arrivals</div>
+                        <div>Best Sellers</div>
+                        <div>Discounts</div>
+                    </div>
+                </div>
+                <div class="items">Retail
+                    <div class="list">
+                        <div>option-1</div>
+                        <div>option-2</div>
+                    </div>
+                </div>
+                <div class="items">Services
+                    <div class="list">
+                        <div>Consulting</div>
+                        <div>Support</div>
+                        <div>Custom Work</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="user">
+                <i class="fa-solid fa-user" style="position: absolute;  left: 8px; font-size: 40px; color: rgb(16, 15, 19);"></i>
+                <div class="user_list">
+                    <div>Profile</div>
+                    <div>Reset Password</div>
+                    <div>Logout</div>
+                    <div>Edit Profile</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

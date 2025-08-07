@@ -1,0 +1,147 @@
+body {
+    width: 100%;
+    /* height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    position: relative;
+}
+.sun {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(241, 175, 54);
+    box-shadow: 0 0 60px 30px rgba(255, 222, 0, 0.6);
+    border-radius: 100%;
+    position: absolute;
+    animation: sun_animation 4s infinite ;
+    /* position: absolute;
+    top: 20px;
+    left: 75%;
+    animation: sunMove 30s infinite alternate;
+    z-index: 1; */
+}
+@keyframes sun_animation {
+    0% {
+        box-shadow: 0px 0px 5px 5px rgba(255, 222, 0, 0.6);
+    }
+    50% {
+        box-shadow: 0px 0px 10px 10px rgba(244, 213, 9, 0.6);
+    }
+    100% {
+        box-shadow: 0px 0px 20px 20px rgba(214, 188, 14, 0.6);
+    }
+}
+.circle1 {
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    /* border: 3px solid black; */
+    border: 1px solid white;
+    position: absolute;
+}
+.circle2 {
+    width: 375px;
+    height: 375px;
+    border-radius: 100%;
+    /* border: 3px solid black; */
+    border: 1px solid white;
+    position: absolute;
+}
+.circle3 {
+    width: 500px;
+    height: 500px;
+    border-radius: 100%;
+    /* border: 3px solid black; */
+    border: 1px solid white;
+    position: absolute;
+}
+.circle4 {
+    width: 600px;
+    height: 600px;
+    border-radius: 100%;
+    /* border: 3px solid black; */
+    border: 1px solid white;
+    position: absolute;
+}
+.mercury_img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    animation-name: mercury_animation;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes mercury_animation {
+    0% {
+        transform: rotateZ(0deg) translateX(125px);
+    }
+    100% {
+        transform: rotateZ(360deg) translateX(125px);
+    }
+}
+.venus_img {
+    width: 80px;
+    height: 50px;
+    border-radius: 100%;
+    position: absolute;
+    left: 148px;
+    top: 162px;
+    animation-name: venus_animation;
+    animation-duration: 7s;
+    /* animation-delay: 2s; */
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes venus_animation {
+    0% {
+        transform: rotateZ(0deg) translateX(190px);
+    }
+    100% {
+        transform: rotateZ(360deg) translateX(190px);
+    }
+}
+.earth_img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    position: absolute;
+    left: 225px;
+    top: 225px;
+    animation-name: earth_animation;
+    animation-duration: 9s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes earth_animation {
+    0% {
+        transform: rotateZ(0deg) translateX(250px);
+    }
+    100% {
+        transform: rotateZ(360deg) translateX(250px);
+    }
+}
+.Mars_img {
+    width: 100px;
+    height: 70px;
+    border-radius: 100%;
+    position: absolute;
+    left: 250px;
+    top: 265px;
+    animation-name: mars_animation;
+    animation-duration: 11s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes mars_animation {
+    0% {
+        transform: rotateZ(0deg) translateX(300px);
+    }
+    100% {
+        transform: rotateZ(360deg) translateX(300px);
+    }
+}

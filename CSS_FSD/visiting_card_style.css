@@ -1,0 +1,157 @@
+.background {
+    width: 1500px;
+    height: 1000px;
+    background-image: repeating-linear-gradient(to top right, rgb(214, 228, 233),rgb(114, 200, 229),rgb(3, 70, 92));
+}
+.card {
+    position: relative;
+    top: 100px;
+    left: 500px;
+    width: 450px;
+    height: 270px;
+    box-shadow: 0px 0px 20px 5px rgb(15, 34, 35);
+    /* border: 3px solid rgb(12, 46, 183); */
+    /* background-image: linear-gradient(to bottom, rgb(48, 177, 228), #2486e8); */
+    background-image: linear-gradient(to top, #006A71,#48A6A7);
+    border-radius: 10%;
+    overflow: hidden; 
+}
+.left{
+    position: absolute;
+    left: -100px;
+    top: -60px;
+    width: 300px;
+    height: 400px;
+    background-color: #3bb9b9;
+    /* background-color: #1ab6b6; */
+    border-radius: 100%;
+    /* overflow: hidden; */
+}
+.profile_area {
+    position: absolute;
+    top: 100px;
+    left: 150px;
+    width: 60px;
+    height: 55px;
+    background-color: rgb(66, 139, 184);
+    border-radius: 100%;
+    border: 3px solid rgb(4, 87, 112);
+}   
+.name {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 10px;
+    font-style: normal;
+    position: absolute;
+    top: 150px;
+    left: 140px;
+    color: rgb(5, 82, 123);
+}
+.Thub_Image {
+    position:absolute; 
+    top:220px; 
+    left: 120px; 
+    /* font-size: 10px; */
+}
+.Thub_name{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    position: absolute;
+    top: 202px;
+    left: 155px;
+    color: rgb(12, 116, 160);
+    font-size: 22px;
+}
+.triangle-up {
+    position: absolute;
+    top: 270px;
+    left: 100px;
+    width: 50px;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 60px solid rgb(30, 156, 154);
+    z-index: 2;
+}
+.triangle-up1 {
+    position: absolute;
+    top: 270px;
+    left: 100px;
+    width: 70px;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 100px solid rgb(17, 122, 141);
+    z-index: 1;
+}
+.triangle-up2 {
+position: absolute;
+top: 270px;
+left: 100px;
+width: 100px;
+border-top: 20px solid transparent;
+border-bottom: 20px solid transparent;
+border-left: 140px solid rgb(11, 97, 126);
+}
+.right {
+    position: absolute;
+    left: 200px;
+    width: 250px;
+    height: 270px;
+    /* border: 3px solid black; */
+}
+            
+.full_name {
+    position: relative;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200px;
+    font-style: normal;
+}
+.full-stack {
+    position: absolute;
+    top: 50px;
+    left: 3px;
+    font-size: 12px;
+}
+.line {
+    color: #035358;
+    width: 70px;
+    height: 3px;
+    position: absolute;
+    top: 70px;
+    background-color: #035358;
+    border: none;
+}
+.phonenumber {
+    position: absolute;
+    top: 96px;
+    left: 30px;
+    font-size: 14px;
+}
+.emails {
+    font-family: "Satisfy", cursive;
+    font-weight: 400;
+    font-style: normal;
+    position: absolute;
+    top: 125px;
+    left: 30px;
+    font-size: 14px;
+}
+.address {
+    font-family: "Satisfy", cursive;
+    font-weight: 400;
+    font-style: normal;
+    position: absolute;
+    top: 160px;
+    left: 30px;
+    font-size: 13px;
+}
+.github {
+    font-family: "Satisfy", cursive;
+    font-weight: 400;
+    font-style: normal;
+    position: absolute;
+    top: 193px;
+    left: 30px;
+    font-size: 13px;
+}

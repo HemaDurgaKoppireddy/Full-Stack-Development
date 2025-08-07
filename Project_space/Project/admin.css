@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #1e1e1e;
+}
+
+.container {
+  display: flex;
+  width: 950px;
+  height: 600px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.login-section {
+  flex: 1;
+  background-color: #111;
+  color: #fff;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-section h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.login-section p {
+  margin-bottom: 20px;
+  color: #aaa;
+}
+
+.login-section form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  cursor: pointer;
+}
+
+.forgot {
+  display: block;
+  margin-bottom: 20px;
+  color: #888;
+  font-size: 0.9em;
+  text-decoration: none;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #a169f7;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background-color: #8e50e6;
+}
+
+.back-link {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.back-link a {
+  color: #a169f7;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.illustration-section {
+  flex: 1;
+  background: #a169f7;
+  color: #fff;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.illustration-section h1 {
+  font-size: 2em;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.illustration-section span {
+  font-weight: 600;
+}
+
+.illustration-section p {
+  margin-bottom: 20px;
+  color: #eee;
+}
+
+.illustration-section img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}

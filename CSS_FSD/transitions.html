@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Transitions</title>
+    </head>
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: justify;
+            position: relative;
+            background-color: black;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            /* transition-property: width;
+            transition-duration: 2s;
+            transition-timing-function: ease-in;
+            transition-delay: 1s; */
+
+            transition: all 2s ease-in 1s;
+        }
+        .box:hover {
+            width: 300px;
+            background-color: white;
+        }
+        .sun {
+            width: 150px;
+            height: 150px;
+            background-color: rgb(241, 175, 54);
+            box-shadow: 0 0 60px 30px rgba(255, 222, 0, 0.6);
+            border-radius: 100%;
+            position: absolute;
+            top: 100px;
+            left: 500px;
+            transition: all 2s ease-in;
+        }
+        .sun:hover {
+            background-color: #f5f5f5;
+            box-shadow: 0 0 30px 15px rgba(207, 201, 201, 0.5);
+        }
+    </style>
+    <body>
+        <div class="box"></div>
+        <div class="sun"></div>
+    </body>
+</html>

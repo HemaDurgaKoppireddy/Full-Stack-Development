@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Help Center</title>
+    <link rel="stylesheet" href="help_center.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </head>
+  <body>
+    <div class="full_box">
+      <div class="left_part">
+        <h2>Welcome to the Help Center</h2>
+        <p style="margin-bottom: 40px;">Need assistance with fee-related issues, permissions, or academic support? You're in the right place!</p>
+
+        <h3>How We Can Help</h3>
+        <ul>
+          <li><i class="fa-solid fa-money-bill-wave"></i> Apply for Fee Concessions</li>
+          <li><i class="fa-solid fa-clock"></i> Ask for Payment Extensions</li>
+          <li><i class="fa-solid fa-ban"></i> Request Fine Waivers</li>
+          <li><i class="fa-solid fa-circle-question"></i> Get Answers to General Queries</li>
+        </ul> 
+
+        <h3>Support Hours</h3>
+        <p style="margin-bottom: 40px;">&#128467;&#65039; Monday to Friday<br>&#128339; 9:00 AM - 5:00 PM</p>
+
+        <h3>Need Urgent Help?</h3>
+        <p >Email: <a href="aditya@university.edu" style="color: white;">aditya@university.edu</a></p>
+      </div>
+
+ 
+      <div class="right_part">
+        <h1>Student Help Center <i class="fa-solid fa-handshake-angle" style="color: rgb(210, 195, 195);"></i></h1>
+        <p>Request permissions, fee waivers, or general assistance</p>
+
+        <form action="./success_message.html" target="_self">
+          <div class="form-fields">
+            <label>	&#127380; Roll Number*</label>
+            <input type="text" placeholder="Enter your roll number" required>
+          </div>
+          <div class="form-fields">
+            <label>&#128100; Full Name*</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="form-fields">
+            <label>&#9993;&#65039; Email Address*</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+
+          <div class="form-fields">
+            <label>&#128315; Request Type</label>
+            <select id="subject">
+              <option>-- Select Request Type --</option>
+              <option>Apply for Fee Reduction</option>
+              <option>Permission to Delay Payment</option>
+              <option>Request for Fine Waiver</option>
+              <option>General Query</option>
+            </select>
+          </div>
+
+          <div class="suggestion">
+            &#8505;&#65039; Clearly explain your situation and attach any supporting documents if required.
+          </div>
+
+          <div class="form-fields">
+            <label>&#128228; Upload file</label>
+            <input type="file" id="email" placeholder="Enter your email" >
+          </div>
+
+          <div class="form-fields">
+            <label>&#128221; Your Message</label>
+            <textarea id="message" placeholder="Type your request here..."></textarea>
+          </div>
+
+          <button class="submit">Submit Request</button>
+        </form>
+
+      </div>
+    </div>
+    
+  </body>
+</html>

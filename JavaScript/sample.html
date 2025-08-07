@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Home</title>
+       <style>
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            width:100%;
+            height:90vh;
+            /* background-image: linear-gradient(90deg,#1a6985,#0b3021) */
+            background: url('https://www.codespeedy.com/wp-content/uploads/2018/12/log.jpg') no-repeat center center/cover;
+
+        }
+        .login{
+            display:flex;
+            align-items:center;
+            flex-direction:column;
+            gap:20px;
+            position:relative;
+            height:400px;
+            width:500px;
+            backdrop-filter:blur(5px);
+            border-radius:2%;
+            border:1px solid black;
+            color:white;
+            text-align:center;
+        }
+        .username{
+            /* background-color: #d7d1d1; */
+            /* filter:blur(3px); */
+            opacity: 0.3;
+            position:relative;
+            border:1px solid white;
+            width:300px;
+            height:30px;
+            border-radius:50px;
+            padding:10px 15px;
+        }
+        .password{
+            opacity: 0.3;
+            width:300px;
+            height:30px;
+            border-radius:50px;
+            border:1px solid white;
+            padding: 5px 15px;
+        }
+        #info{
+            display:flex;
+            flex-direction:column;
+            gap:30px;
+        }
+        #conditions{
+            display:flex;
+            gap:100px;
+            width:340px;
+        }
+        #lg-btn{
+            opacity: 0.3;
+            width:300px;
+            height:40px;
+            border-radius:40px;
+        }
+        #xy{
+            display:flex;
+        }
+       </style>
+    </head>
+    <body>
+        <div class="login">
+            <h1 class="heading">Login</h1>
+            <div id="info">
+            <input class="username" type="text" placeholder="Username" required>
+            <input class="password" type="password" placeholder="Password" required>
+            </div>
+            <div id="conditions">
+                <div><input type="checkbox">
+            <label>Remember me</label>
+               </div>
+            <a href="" style="color:white;">forgot password?</a>
+            </div>
+            <div>
+                <button id="lg-btn">Login</button>
+            </div>
+            <div id="xy">
+            Don't have an account?
+            <a href="" style="color:white">Register</a>
+            </div>
+        </div>
+        <!-- <input class="username" type="text" placeholder="Username" required> -->
+    </body>
+</html>
