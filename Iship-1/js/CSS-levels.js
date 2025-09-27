@@ -82,6 +82,7 @@ document.getElementById("back-btn").addEventListener("click", () => {
   window.history.back();
 });
 
+
 function completeLevel(levelNum, starsEarned) {
   
   const starData = JSON.parse(localStorage.getItem("stars") || "{}");

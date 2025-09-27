@@ -118,12 +118,6 @@ function completeLevel(levelNum, starsEarned) {
     }
   }
 
-//   function awardCoins(stars) {
-//   const coinsEarned = stars * 10;
-//   let currentCoins = parseInt(localStorage.getItem("coin-count")) || 0;
-//   currentCoins += coinsEarned;
-//   localStorage.setItem("coin-count", currentCoins);
-// }
 
   function completeLevel(levelNum, starsEarned) {
       let coins = parseInt(localStorage.getItem("coins")) || 0;
