@@ -12,6 +12,5 @@ const myfunc=async()=>{
    console.log(result);
    console.log("456");
    console.log("123");
-   console.log("123");
 };
 myfunc()
