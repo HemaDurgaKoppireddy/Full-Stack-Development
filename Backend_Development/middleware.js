@@ -13,6 +13,7 @@ app.post('/add-user', (req, res) => {
     let data = req.body;
     console.log(data);
     //logic to add data to database
+    return res.status(200).json({message : "data added successfully"})
     res.send('data added successfully');
 })
 
